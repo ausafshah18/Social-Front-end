@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Social-Front-end/static/css/main.46f6e051.css",
+    "main.js": "/Social-Front-end/static/js/main.04075019.js",
+    "index.html": "/Social-Front-end/index.html",
+    "main.46f6e051.css.map": "/Social-Front-end/static/css/main.46f6e051.css.map",
+    "main.04075019.js.map": "/Social-Front-end/static/js/main.04075019.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46f6e051.css",
+    "static/js/main.04075019.js"
+  ]
+}
