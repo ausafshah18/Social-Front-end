@@ -1,0 +1,55 @@
+$themes: ( // these characteristisc will be used in other .scss files to implement dark and light mode
+    light: (
+        textColor: #000,
+        bg: white,
+        logo: darkblue,
+        bgSoft: #f6f3f3,
+        textColorSoft: #555,
+        border: lightgray,
+    ),
+    dark: (
+        textColor: whitesmoke,
+        bg: #222,
+        logo: white,
+        bgSoft: #333,
+        textColorSoft: lightgray,
+        border: #444,
+    ),
+);
+ // ye chu tormut
+@mixin themify($themes) {  // we are taking our themes
+    @each $theme, $map in $themes { // for each theme(light or dark) we will be able to change the child style
+      .theme-#{$theme} & { // theme div
+        $theme-map: () !global;
+        @each $key, $submap in $map { // map each itme as we have Navbar, rightbar etc. Basically using this function we will be able to change their theme
+          $value: map-get(map-get($themes, $theme), "#{$key}");
+          $theme-map: map-merge(
+            $theme-map,
+            (
+              $key: $value,
+            )
+          ) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+ // ye chu tormut
+  @function themed($key) {
+    @return map-get($theme-map, $key);
+  }
+
+  // Media Queries for responsiveness
+
+  @mixin mobile {
+    @media (max-width:480px) { // media query with condition (width 0 to 480 px)
+      @content;
+    }
+  }
+
+  @mixin tablet {
+    @media (max-width:960px) { // media query with condition (width 0 to 480 px)
+      @content;
+    }
+  }

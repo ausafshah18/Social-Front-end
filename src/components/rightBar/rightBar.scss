@@ -1,0 +1,109 @@
+@import "../../style.scss";
+
+
+.rightBar{
+    @include themify($themes){
+        flex: 3;
+        position: sticky;
+        top: 70px; // because navbar has height as 50 px and padding on top and bottom as 10 each
+        height: calc(100vh - 70px);
+        overflow: scroll;
+        background-color: themed("bgSoft");
+
+        @include mobile{
+            display: none;
+        }
+
+        @include tablet{
+            display: none;
+        }
+    
+        &::-webkit-scrollbar{
+            display: none;  // ugly scroll bar will noy be displayed
+        }
+    
+        .container{
+            padding: 20px;
+    
+            .item{
+                -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+                -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+                box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+
+                background-color: themed("bg");
+    
+                padding: 20px;
+                margin: 20px;
+    
+                span{
+                    color: gray;
+                }
+    
+                .user{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 20px 0px;
+    
+                    .userInfo{
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                        position: relative; // check .online below
+    
+                        img{
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+    
+                        .online{
+                            width: 12px;
+                            height: 12px;
+                            border-radius: 50%;
+                            background-color: limegreen;
+                            position: absolute; // to keep it absolute we have to keep parents position as relative. We are doing this to get online dot on right top of image.
+                            top: 0;
+                            left: 30px; // bcz image width is 40px
+                        }
+    
+                        p{
+                            color: themed(textColorSoft);
+                        }
+    
+                        span{
+                            font-weight: 500;
+                            color: themed(textColor);
+                        }
+    
+                    }
+    
+                    .buttons{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+    
+                        button{
+                            border: none;
+                            padding: 5px;
+                            color: white;
+                            cursor: pointer;
+    
+                            &:first-child{
+                                background-color: #5271ff;
+                            }
+    
+                            &:last-child{
+                                background-color: #f0544f;
+                            }
+                        }
+    
+                    }
+                }
+            }
+        }
+    }
+
+    }
+    
